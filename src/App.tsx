@@ -1,8 +1,10 @@
+import { Outlet } from "react-router-dom"
 
 const App: React.FC = () => {
   return (
     <>
-      <div className="text-5xl">hello</div>
+      <h1 className="text-2xl">Nav</h1>
+      <Outlet />
     </>
   )
 }
