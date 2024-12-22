@@ -1,3 +1,4 @@
+import Hero from "../components/Hero/Hero";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
 
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
         {/* col-4 space */}
         <div className="col-span-5">
           <TopNav />
+          <Hero />
         </div>
       </div>
     </>
