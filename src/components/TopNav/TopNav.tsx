@@ -2,26 +2,24 @@ import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import Suggestions from "./Suggestions";
-import axios from "../../utils/axios";
+import instance from "../../utils/axios";
 
 const TopNav: React.FC = () => {
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<any[]>([]);
 
+  // api call for all (movie, tv shows, people) searches
   const getSearches = async () => {
     try {
-      const response = await axios.get(`/search/multi?query=${query}`);
+      const response = await instance.get(`/search/multi?query=${query}`);
       setResults(response.data.results);
-      console.log(response.data.results);
-    } catch (error) {
-      console.log("Error:", error);
+    } catch (err) {
+      console.log("Error:", err);
     }
   };
 
   useEffect(() => {
-    if (query) {
-      getSearches();
-    }
+    query && getSearches();
   }, [query]);
 
   return (
