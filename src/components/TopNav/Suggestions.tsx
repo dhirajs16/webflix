@@ -38,7 +38,7 @@ interface SuggestionsProps {
 const Suggestions: React.FC<SuggestionsProps> = ({ results }) => {
   return (
     <>
-      <div className="w-[50%] max-h-[50vh] flex flex-col gap-1 bg-[#373c50] mx-auto overflow-auto rounded-md">
+      <div className="w-[50%] max-h-[50vh] flex flex-col gap-1 bg-[#373c50] overflow-auto rounded-md absolute z-10 left-[20vw]">
         
         {/* suggestion list */}
         {results.map((result) => (

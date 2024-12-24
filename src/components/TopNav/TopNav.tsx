@@ -24,19 +24,22 @@ const TopNav: React.FC = () => {
 
   return (
     <>
-      <div className="w-full h-[10vh] flex items-center ml-40">
-        <SearchIcon onClick={getSearches} />
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          type="text"
-          className="w-[50%] p-3 bg-transparent outline-none text-lg text-zinc-300"
-          placeholder="Search Movies, TV Shows, Artists and others"
-        />
-        {query.length > 0 && <CloseIcon onClick={() => setQuery("")} />}
-      </div>
+    {/* creating a parent div for top and suggestion and making the suggestion absolute with z-10 */}
+      <div className="relative">
+        <div className="w-full h-[10vh] flex items-center ml-40">
+          <SearchIcon onClick={getSearches} />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            type="text"
+            className="w-[50%] p-3 bg-transparent outline-none text-lg text-zinc-300"
+            placeholder="Search Movies, TV Shows, Artists and others"
+          />
+          {query.length > 0 && <CloseIcon onClick={() => setQuery("")} />}
+        </div>
 
-      {query.length > 0 && <Suggestions results={results} />}
+        {query.length > 0 && <Suggestions results={results} />}
+      </div>
     </>
   );
 };

@@ -1,8 +1,32 @@
 import React, { useEffect, useState } from "react";
 import instance from "../../utils/axios";
 
+interface wallpaperType {
+  // movie
+  id: number;
+  adult: boolean;
+  genre_ids: number[];
+  name: string;
+  title: string;
+  original_title: string;
+  backdrop_path: string;
+  media_type: string;
+  original_language: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: Date;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+
+  // tv
+  first_air_date: Date;
+  origin_country: string[];
+}
+
 const Hero: React.FC = () => {
-  const [wallpaper, setWallpaper] = useState<any>(null);
+  const [wallpaper, setWallpaper] = useState<wallpaperType>();
 
   const getWallpaper = async () => {
     try {
@@ -20,15 +44,20 @@ const Hero: React.FC = () => {
 
   return (
     <>
-      <div className="w-full h-[90vh] bg-blue-300">
+      <div className="w-full h-[90vh]">
+        {/* image and text only if wallpaper is called successfully. */}
         {wallpaper && (
-          <div
-            style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/w500${wallpaper.backdrop_path})`,
-              
-            }}
-            className="h-2/3 w-full bg-black object-contain bg-no-repeat"
-          ></div>
+          <div className="h-2/3 w-full relative">
+            <img
+              className="w-full h-full object-cover bg-no-repeat"
+              src={`https://image.tmdb.org/t/p/w500${wallpaper.backdrop_path}`}
+              alt=""
+            />
+            {/* display text over the image with z-index */}
+            <div className="absolute z-10 bottom-10 left-10">
+              <span className="">hello</span>
+            </div>
+          </div>
         )}
       </div>
     </>
