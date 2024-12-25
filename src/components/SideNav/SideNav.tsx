@@ -5,7 +5,7 @@ import NavItems from "./NavItems";
 const SideNav: React.FC = () => {
   return (
     <>
-      <div className="col-span-1 h-full border-r-2 border-zinc-500 p-5">
+      <div className="fixed w-[20vw] h-[100vh] border-r-2 border-zinc-500 p-5">
         {/* logo and title */}
         <div className="flex items-center gap-2 cursor-pointer">
           <LiveTvTwoToneIcon className="text-[#e50914]" />

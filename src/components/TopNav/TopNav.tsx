@@ -24,9 +24,9 @@ const TopNav: React.FC = () => {
 
   return (
     <>
-    {/* creating a parent div for top and suggestion and making the suggestion absolute with z-10 */}
-      <div className="relative">
-        <div className="w-full h-[10vh] flex items-center ml-40">
+      {/* creating a parent div for top and suggestion and making the suggestion absolute with z-10 */}
+      <div className="fixed right-0 top-0 w-[80vw] h-[10vh] z-10 bg-[#141e47]">
+        <div className="flex items-center ml-40">
           <SearchIcon onClick={getSearches} />
           <input
             value={query}
@@ -37,8 +37,9 @@ const TopNav: React.FC = () => {
           />
           {query.length > 0 && <CloseIcon onClick={() => setQuery("")} />}
         </div>
-
-        {query.length > 0 && <Suggestions results={results} />}
+        <div className="relative">
+          {query.length > 0 && <Suggestions results={results} />}
+        </div>
       </div>
     </>
   );
